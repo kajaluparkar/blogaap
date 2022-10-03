@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
      public function index()
      {
-        $data = Blog::all();
+        $data = Blog::paginate(3);
         $latest_blog = Blog::latest()->first();
         $categories = Category::all();
         return view('welcome', compact('data','latest_blog','categories'));
@@ -18,7 +18,7 @@ class FrontController extends Controller
 
      }
      public function detail($id){
-        $data = Blog::find($id);
+        $data = Blog::with('category')->find($id);
         $categories = Category::all();
 
         return view('fronted.detail' , compact('data','categories'));

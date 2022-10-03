@@ -38,7 +38,7 @@
       <tr>
         <td>{{$d->id}}</td>
         <td>{{$d->title}}</td>
-        <td>{{$d->description}}</td>
+        <td>{!!$d->description!!}</td>
         <td> <img src="{{asset('uploads/'.$d->image)}}" width="50px"  height="50px"></td>
         <td>
             <a href="{{route('admin.blog.edit',$d->id)}}"> <button type="button" class="btn btn-success">Edit</button></a>

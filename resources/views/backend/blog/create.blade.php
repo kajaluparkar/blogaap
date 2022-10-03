@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+
 </head>
 <body>
 
@@ -35,11 +37,26 @@
     <div class="form-group">
     <label for="image">Image:-</label>
     <input type="file" id="image" name="image" >
+    </div>
+    <div class="form-group">
+    <select name="category_id" id="cars">
+        @foreach($data as $d)
+        <option value="{{$d->id}}">{{$d->title}}</option>
+        @endforeach
+      </select>
 
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 
 </body>
 </html>
